@@ -1,4 +1,4 @@
-name: Update Website and main.tf
+name: Update Website
 
 on:
   push:
@@ -23,10 +23,3 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
           SOURCE_DIR: 'Website'
-
-      - name: Copy main.tf file
-        run: |
-          cp /Users/marcellusbryan/.aws/TerraformConfigurations/ResumeProject/main.tf infra/main.tf
-          git add infra/main.tf
-          git commit -m "Update main.tf file" || exit 0
-          git push
