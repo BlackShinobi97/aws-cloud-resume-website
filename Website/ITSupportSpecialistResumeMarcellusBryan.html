@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Marcellus Bryan - Resume</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Marcellus Bryan - Resume</h1>
+    <h2>Visitor Count</h2>
+   <p id="visitorCount"></p>
+   <button id="triggerButton">Increment Visitor Count</button>
+
+   <script>
+function updateVisitorCount() {
+  fetch('https://o9wgtsaoaf.execute-api.us-east-1.amazonaws.com/PROD/root', {
+    method: 'POST',
+    body: JSON.stringify({}),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Response data:', data); // Log the response data
+    const body = JSON.parse(data.body); // Parse the JSON string in the body
+    document.getElementById('visitorCount').innerText = `Visitor Count: ${body.visitor_count}`;
+  })
+  .catch(error => {
+    console.error('Error updating visitor count:', error);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateVisitorCount(); // Initial call to display visitor count
+  document.getElementById('triggerButton').addEventListener('click', updateVisitorCount);
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateVisitorCount(); // Initial call to display visitor count
+  document.getElementById('triggerButton').addEventListener('click', updateVisitorCount);
+});
+  </script>
+
+
+    <div class="summary">
+      <h2>Summary</h2>
+      <p>
+        Experienced and enthusiastic IT professional with a strong multitasking ability.
+        Detail-oriented with excellent communication skills. Demonstrated talent in handling
+        dynamic and demanding IT needs. Proficient in technology, Cloud services, and software
+        Technologies.
+      </p>
+        Overall, my focus and dedication lie in the realm of cloud management, where I aim 
+        to leverage my skills to drive innovation, streamline processes, and deliver exceptional 
+        results for any organization's cloud initiatives.
+      <p>
+
+      </p>
+    </div>
+
+    <div class="education">
+      <h2>Education</h2>
+      <ul>
+        <li>Bachelor of Science in Information Technology</li>
+        <li>Georgia Gwinnett College, Lawrenceville, GA, 12/2020</li>
+        <li>GPA: 3.4</li>
+        <li>Dean's List: 2018-2020</li>
+        <li>Video Production Club</li>
+      </ul>
+    </div>
+
+    <div class="certifications">
+      <h2>Certifications and Courses</h2>
+      <ul>
+        <li>AWS Cloud Practitioner Certified and Accredited</li>
+        <li>AWS Associate Solutions Architect</li>
+        <li>IT Support Specialist, Coursera.org, 07/2021</li>
+      </ul>
+    </div>
+
+    <div class="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>Network Services (DNS)</li>
+        <li>TCP/IP Basics</li>
+        <li>Threats and Attacks</li>
+        <li>Active Directory Management</li>
+        <li>CSS</li>
+        <li>Azure and ADFS Federation setup for Application</li>
+        <li>OKTA Troubleshooting</li>
+        <li>AWS Cloud Technologies</li>
+        <li>Terraform</li>
+        <li>.NET</li>
+        <li>IIS</li>
+        <li>Powershell</li>
+        <li>Server Management</li>
+        <li>Solarwinds</li>
+        <li>Postman</li>
+        <!-- Add more skills here -->
+      </ul>
+    </div>
+
+    <div class="experience">
+      <h2>Experience</h2>
+
+      <h3>Technical Services Management Specialist - (Current Job)</h3>
+      <ul>
+        <li>Maintain server infrastructure using Solarwinds for monitoring.</li>
+        <li>Work with Terraform and Cloudfactory for VM servers.</li>
+        <li>AWS Cloudwatch monitoring with canaries </li>
+        <li>Handle ASP.NET frameworks and Microsoft SQL Server reporting services.</li>
+        <li>SQL Server</li>
+        <li>Deployment of multiple Software</li>
+        <li>Integration of Sofware</li>
+        <li>Meet SLA</li>
+        <li>Setup ADFS and azure Federation for application </li>
+        <li>Work with other project teams to resolve Client issues</li>
+        <!-- Add more details here -->
+      </ul>
+
+      <h3>Associate Technical Services Management Specialist</h3>
+      <ul>
+        <li>Maintain server infrastructure using Solarwinds for monitoring.</li>
+        <li>Work with Terraform and Cloudfactory for VM servers.</li>
+        <li>AWS Cloudwatch monitoring with canaries </li>
+        <li>Handle ASP.NET frameworks and Microsoft SQL Server reporting services.</li>
+        <li>SQL Server</li>
+        <!-- Add more details here -->
+      </ul>
+
+      <h3>Software Support Representative - Tyler Technologies, Lawrenceville, Georgia</h3>
+      <ul>
+        <li>Provide ERP clients with support for SaaS and Silverlight software issues.</li>
+        <li>Work with CRM systems and databases.</li>
+        <li>Perform remote server changes and basic SQL commands.</li>
+        <!-- Add more details here -->
+      </ul>
+      <h3>Nurse Support Technician - SnapNurse, Atlanta, Georgia</h3>
+      <ul>
+        <li>Provided support to nurses for various issues, including VMS systems and databases.</li>
+        <li>Assisted the Director of IT with computer, peripherals, and software issues.</li>
+        <li>Deployed Windows operating systems on new devices.</li>
+      </ul>
+
+      <h3>Full Time Sales Associate - Sherwin Williams, Buford, Georgia (04/2019 - Present)</h3>
+      <ul>
+        <li>Assisted contractors with paint orders and customer accounts.</li>
+        <li>Handled phone calls and online orders.</li>
+        <li>Supported customers through the Sherwin Williams app and online system.</li>
+      </ul>
+
+      <h3>Picker and Packer - American Honda Motors, Alpharetta, Georgia</h3>
+      <ul>
+        <li>Picked parts for truck shipments.</li>
+        <li>Utilized various Inventory Systems and Basic SQL statements.</li>
+      </ul>
+
+      <h3>Meat Associate - Ingles Markets, Auburn, Georgia</h3>
+      <ul>
+        <li>Interacted with customers and managed stock.</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>
