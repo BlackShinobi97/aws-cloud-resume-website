@@ -13,6 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Check for changes
+        id: check_changes
+        run: echo "::set-output name=changed::$(git diff --name-only HEAD^)"
+
       - name: Sync files to S3
         uses: jakejarvis/s3-sync-action@master
         with:
@@ -23,6 +27,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
           SOURCE_DIR: 'Website'
+        if: steps.check_changes.outputs.changed != ''
 
       - name: Invalidate CloudFront Cache
         uses: aws-actions/configure-aws-credentials@v2
