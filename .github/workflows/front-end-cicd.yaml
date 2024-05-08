@@ -15,7 +15,7 @@ jobs:
 
       - name: Check for changes
         id: check_changes
-        run: echo "::set-output name=changed::$(git diff --name-only HEAD^ -- Website/)"
+        run: echo "::set-output name=changed::$(git diff --name-only HEAD~1 --Website/)"
 
       - name: Sync files to S3
         uses: jakejarvis/s3-sync-action@master
