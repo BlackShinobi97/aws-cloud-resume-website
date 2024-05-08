@@ -16,6 +16,8 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: echo "CHANGED_FILES=$(git diff --name-only HEAD -- Website/)" >> $GITHUB_ENV
+      - name: Print environment variable
+        run: echo $MY_VAR
 
       - name: Sync files to S3
         uses: jakejarvis/s3-sync-action@master
